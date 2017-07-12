@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>THE WALL</title>
+		<style>
+		.success{
+			color: green;
+		}
+	</style>
+</head>
+<body>
+	<h1>THE WALL</h1>
+
+	{% with messages = get_flashed_messages(with_categories=true) %}
+		{% if messages %}
+			<ul class="flashes">
+			{% for category, message in messages %}
+				<li class="{{ category }}">{{ message }}</li>
+			{% endfor %}
+			</ul>
+		{% endif %}
+	{% endwith %}
+
+	<a href="/logout">Logout</a>
+
+	Welcome {{user['first_name']}}!
+	</body>
+
+</html>
